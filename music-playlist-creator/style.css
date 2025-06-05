@@ -17,37 +17,41 @@ header, footer {
     flex-wrap: wrap;
 }
 
-.playlist-card-container {
-    width: 25%;
-    box-sizing: border-box;
-}
-
 .playlist-card {
     display: flex;
     flex-direction: column;
+    width: 25%;
+    box-sizing: border-box;
     margin: 30px 60px;
     border: 1px solid gray;
     border-radius: 10px;
 }
 
+.playlist-card img {
+    width: 100%;
+    height: 100%;
+}
+
 .modal-overlay {
     display: none; /* Hidden by default */
-   position: fixed; /* Stay in place */
-   z-index: 1; /* Sit on top */
-   left: 0;
-   top: 0;
-   width: 100%; /* Full width */
-   height: 100%; /* Full height */
-   overflow: auto; /* Enable scroll if needed */
-   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .modal-content {
-   background-color: #fefefe;
-   margin: 15% auto; /* 15% from the top and centered */
-   padding: 20px;
-   border: 1px solid #888;
-   width: 80%; /* Could be more or less, depending on screen size */
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
 }
 
 .close {
@@ -55,6 +59,7 @@ header, footer {
    float: right;
    font-size: 28px;
    font-weight: bold;
+   display: flex;
 }
 
 .close:hover,
@@ -62,4 +67,58 @@ header, footer {
    color: black;
    text-decoration: none;
    cursor: pointer;
+}
+
+.modal-playlist-container {
+    display: flex;
+    align-items: center;
+}
+
+.modal-playlist-container #playlist-info {
+    margin-left: 20px;
+}
+
+.modal-playlist-container .close {
+    margin-left: auto;
+    margin-bottom: auto;
+}
+
+#playlistImage {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+#playlist-info {
+    display: flex;
+    flex-direction: column;
+    /* flex: 70%; */
+}
+
+.modal-song-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    gap: 10px;
+}
+
+.modal-song-container img {
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+
+.song-card {
+    display: flex;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    justify-content: center;
+}
+
+.songDuration {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
 }

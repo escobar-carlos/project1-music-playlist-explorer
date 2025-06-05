@@ -17,105 +17,20 @@
 
     <main> 
         <!-- Your main content here -->
-        <div class="playlist-cards">
-            <div class="playlist-card-container">
-                <div class="playlist-card">
-                    <!-- Image Here -->
-                    <img src="assets/img/song.png" alt="Song Image">
-                    <!-- Playlist Title -->
-                    <h3>Playlist Title</h3>
-                    <!-- Creator Name -->
-                    <p>Creator Name</p>
-                    <!-- Like -->
-                </div>
-            </div>
-            <div class="playlist-card-container">
-                <div class="playlist-card">
-                    <!-- Image Here -->
-                    <img src="assets/img/song.png" alt="Song Image">
-                    <!-- Playlist Title -->
-                    <h3>Playlist Title</h3>
-                    <!-- Creator Name -->
-                    <p>Creator Name</p>
-                    <!-- Like -->
-                </div>
-            </div>
-            <div class="playlist-card-container">
-                <div class="playlist-card">
-                    <!-- Image Here -->
-                    <img src="assets/img/song.png" alt="Song Image">
-                    <!-- Playlist Title -->
-                    <h3>Playlist Title</h3>
-                    <!-- Creator Name -->
-                    <p>Creator Name</p>
-                    <!-- Like -->
-                </div>
-            </div>
-            <div class="playlist-card-container">
-                <div class="playlist-card">
-                    <!-- Image Here -->
-                    <img src="assets/img/song.png" alt="Song Image">
-                    <!-- Playlist Title -->
-                    <h3>Playlist Title</h3>
-                    <!-- Creator Name -->
-                    <p>Creator Name</p>
-                    <!-- Like -->
-                </div>
-            </div>
-            <div class="playlist-card-container">
-                <div class="playlist-card">
-                    <!-- Image Here -->
-                    <img src="assets/img/song.png" alt="Song Image">
-                    <!-- Playlist Title -->
-                    <h3>Playlist Title</h3>
-                    <!-- Creator Name -->
-                    <p>Creator Name</p>
-                    <!-- Like -->
-                </div>
-            </div>
-            <div class="playlist-card-container">
-                <div class="playlist-card">
-                    <!-- Image Here -->
-                    <img src="assets/img/song.png" alt="Song Image">
-                    <!-- Playlist Title -->
-                    <h3>Playlist Title</h3>
-                    <!-- Creator Name -->
-                    <p>Creator Name</p>
-                    <!-- Like -->
-                </div>
-            </div>
-            <div class="playlist-card-container">
-                <div class="playlist-card">
-                    <!-- Image Here -->
-                    <img src="assets/img/song.png" alt="Song Image">
-                    <!-- Playlist Title -->
-                    <h3>Playlist Title</h3>
-                    <!-- Creator Name -->
-                    <p>Creator Name</p>
-                    <!-- Like -->
-                </div>
-            </div>
-            <div class="playlist-card-container">
-                <div class="playlist-card">
-                    <!-- Image Here -->
-                    <img src="assets/img/song.png" alt="Song Image">
-                    <!-- Playlist Title -->
-                    <h3>Playlist Title</h3>
-                    <!-- Creator Name -->
-                    <p>Creator Name</p>
-                    <!-- Like -->
-                </div>
-            </div>
-        </div>
+        <div class="playlist-cards"></div>
     </main>
 
     <div id="playlistModal" class="modal-overlay">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h1 id="playlistTitle"></h1>
-            <img id="playlistImage" src="assets/img/playlist.png" alt="Playlist Image">
-            <p id="playlistCreator"></p>
-            <div id="playlistSongs"></div>
+            <div class="modal-playlist-container">
+                <img id="playlistImage" src="assets/img/playlist.png" alt="Playlist Image">
+                <div id="playlist-info">
+                    <h2 id="playlistTitle"></h2>
+                    <p id="playlistCreator"></p>
+                </div>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-song-container"></div>
         </div>
     </div>
 
