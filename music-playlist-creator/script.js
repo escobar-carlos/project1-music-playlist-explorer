@@ -20,7 +20,7 @@ function openModal(playlistId) {
             
             // clear if necessary
             songsContainer.innerHTML = '';
-            
+
             let songs = matchingPlaylist.songs;
 
             for (let song of songs) {
@@ -66,19 +66,38 @@ async function createPlaylistCards() {
 function createPlaylistCard(playlist) {
     let elem = document.createElement('div');
     elem.classList.add('playlist-card');
+
     // create img elem and then append
     let img = document.createElement('img');
     img.src = playlist.playlist_art;
     img.alt = 'Playlist Image';
     elem.appendChild(img);
+
     // create h3 elem for title and then append
     let h3 = document.createElement('h3');
     h3.textContent = playlist.playlist_name;
     elem.appendChild(h3);
+
     // create p elem for creator name and then append
     let p = document.createElement('p');
     p.textContent = playlist.playlist_author;
     elem.appendChild(p);
+
+    // create like-feature elem
+    // let likeFeatureElem = document.createElement('div');
+    // likeFeatureElem.classList.add('like-feature');
+
+    // create like button
+    let likeButton = document.createElement('button');
+    likeButton.classList.add('like-button');
+    likeButton.setAttribute('data-liked', false);
+    likeButton.textContent = `\u2764 ${playlist.playlist_likes}`;
+
+    likeButton.addEventListener('click', toggleLike);
+
+    elem.appendChild(likeButton);
+
+    //
 
     // add id as a data attribute
     elem.setAttribute('data-playlist-id', playlist.playlistId);
@@ -103,7 +122,7 @@ function addModalFunctionality() {
     let playlists = document.querySelectorAll('.playlist-card');
 
     for (let playlist of playlists) {
-        playlist.addEventListener('click', (event) => {
+        playlist.addEventListener('click', () => {
             openModal(playlist.dataset.playlistId);
         })
     }
@@ -158,6 +177,36 @@ function createSongCard(song) {
     return elem;
 }
 
+function toggleLike(event) {
+    event.stopPropagation();
+
+    const likeButton = event.target;
+    const liked = likeButton.dataset.liked === 'true';
+    const likeCount = parseInt(likeButton.textContent.split(' ')[1]);
+    const updatedLikeCount = liked ? likeCount - 1: likeCount + 1;
+    likeButton.textContent = `\u2764 ${updatedLikeCount}`;
+    likeButton.dataset.liked = !liked;
+}
+
 createPlaylistCards().then(() => {
     addModalFunctionality();
-})
+    let shuffleButton = document.querySelector('#shuffle-button');
+    shuffleButton.addEventListener('click', () => {
+        shufflePlaylist()
+    });
+});
+
+
+function shufflePlaylist() {
+    let songsContainer = document.querySelector('.modal-song-container');
+    let songs = Array.from(document.querySelectorAll('.song-card'));
+
+    // clear if necessary
+    songsContainer.innerHTML = '';
+
+    songs.sort(() => Math.random() - 0.5);
+
+    for (let song of songs) {
+        songsContainer.appendChild(song);
+    }
+}
