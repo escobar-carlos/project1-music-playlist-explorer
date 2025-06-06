@@ -32,15 +32,17 @@ header a:hover {
 .playlist-cards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .playlist-card {
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     flex-grow: 1;
     gap: 5px;
     width: 15%;
-    max-width: 25%;
+    max-width: 15%;
     margin: 30px 60px;
     border-radius: 10px;
     background-color: white;
@@ -163,4 +165,11 @@ header a:hover {
 .like-button {
     margin: 0px auto;
     border: none;
+    cursor: pointer;
+}
+
+.delete-button {
+    margin: 0px auto;
+    border: none;
+    cursor: pointer;
 }

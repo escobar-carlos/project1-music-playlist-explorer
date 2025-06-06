@@ -85,10 +85,6 @@ function createPlaylistCard(playlist) {
     p.textContent = playlist.playlist_author;
     elem.appendChild(p);
 
-    // create like-feature elem
-    // let likeFeatureElem = document.createElement('div');
-    // likeFeatureElem.classList.add('like-feature');
-
     // create like button
     let likeButton = document.createElement('button');
     likeButton.classList.add('like-button');
@@ -99,7 +95,12 @@ function createPlaylistCard(playlist) {
 
     elem.appendChild(likeButton);
 
-    //
+    // create delete button
+    let deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-button');
+    deleteButton.textContent = 'Delete';
+
+    elem.appendChild(deleteButton);
 
     // add id as a data attribute
     elem.setAttribute('data-playlist-id', playlist.playlistId);
@@ -126,6 +127,12 @@ function addModalFunctionality() {
     for (let playlist of playlists) {
         playlist.addEventListener('click', () => {
             openModal(playlist.dataset.playlistId);
+        })
+
+        // add delete button click functinality
+        let deleteButton = playlist.querySelector('.delete-button');
+        deleteButton.addEventListener('click', (event) => {
+            toggleDelete(event, playlist.dataset.playlistId);
         })
     }
 }
@@ -202,11 +209,29 @@ function shufflePlaylist() {
     }
 }
 
+function toggleDelete(event, playlistId) {
+    event.stopPropagation();
+    let playlists = document.querySelectorAll('.playlist-card');
+
+    let matchingPlaylist = null;
+    for (let playlist of playlists) {
+        if (playlist.dataset.playlistId == playlistId) {
+            matchingPlaylist = playlist;
+            break;
+        }
+    }
+
+    if (matchingPlaylist) {
+        matchingPlaylist.remove();
+    } else {
+        console.error("An error has occured: Could not find playlist to delete");
+    }
+
+}
+
 
 createPlaylistCards().then(() => {
     addModalFunctionality();
     let shuffleButton = document.querySelector('#shuffle-button');
-    shuffleButton.addEventListener('click', () => {
-        shufflePlaylist()
-    });
+    shuffleButton.addEventListener('click', shufflePlaylist);
 });
