@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+}
+
+.playlist {
+    display: flex;
+    flex-direction: column;
+}
+
+.song {
+    display: flex;
+}
+
+.song-info {
+    display: flex;
+    flex-direction: column;
+}

@@ -4,13 +4,23 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #f8f8f8;
 }
 
-header, footer {
+header {
+    padding: 10px;
     background-color: #d3d3d3;
 }
+
+/* header, footer {
+    background-color: #d3d3d3;
+} */
+
+/* footer {
+    margin-top: auto;
+    height: 50px;
+} */
 
 .playlist-cards {
     display: flex;
@@ -20,11 +30,25 @@ header, footer {
 .playlist-card {
     display: flex;
     flex-direction: column;
-    width: 25%;
+    gap: 5px;
+    width: 15%;
+    max-width: 25%;
     box-sizing: border-box;
     margin: 30px 60px;
-    border: 1px solid gray;
     border-radius: 10px;
+    background-color: white;
+    min-width: 200px;
+}
+
+.playlist-card * {
+    word-wrap: break-word;
+    border-radius: 10px;
+    background-color: white
+}
+
+.playlist-title,
+.playlist-creator {
+    text-align: center;
 }
 
 .playlist-card img {
@@ -42,6 +66,8 @@ header, footer {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    backdrop-filter: blur(5px);
+
 }
 
 .modal-content {
@@ -49,9 +75,11 @@ header, footer {
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 60%; /* Could be more or less, depending on screen size */
     display: flex;
     flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
 }
 
 .close {
@@ -72,6 +100,10 @@ header, footer {
 .modal-playlist-container {
     display: flex;
     align-items: center;
+}
+
+.modal-playlist-container img {
+    border-radius: 5px;
 }
 
 .modal-playlist-container #playlist-info {
@@ -97,17 +129,20 @@ header, footer {
 .modal-song-container {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
     gap: 10px;
 }
 
 .modal-song-container img {
-    flex: 0 0 30%;
-    max-width: 30%;
+    width: auto;
+    height: 100%;
+    max-height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 .song-card {
     display: flex;
+    height: 100px;
 }
 
 .song-info {
@@ -123,3 +158,17 @@ header, footer {
     align-items: center;
 }
 
+#shuffle-button {
+    padding: 5px 15px;
+    margin: 10px auto;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    text-align: center;
+}
+
+.like-button {
+    margin: 0px auto;
+    border: none;
+}

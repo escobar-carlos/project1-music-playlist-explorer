@@ -75,11 +75,13 @@ function createPlaylistCard(playlist) {
 
     // create h3 elem for title and then append
     let h3 = document.createElement('h3');
+    h3.classList.add('playlist-title');
     h3.textContent = playlist.playlist_name;
     elem.appendChild(h3);
 
     // create p elem for creator name and then append
     let p = document.createElement('p');
+    p.classList.add('playlist-creator');
     p.textContent = playlist.playlist_author;
     elem.appendChild(p);
 
@@ -155,7 +157,7 @@ function createSongCard(song) {
     p.classList.add('songArtist');
     songInfoElem.appendChild(p);
 
-    // create another p elem for albm name and then append
+    // create another p elem for album name and then append
     let p2 = document.createElement('p');
     p2.textContent = song.album;
     p2.classList.add('albumName');
@@ -185,17 +187,9 @@ function toggleLike(event) {
     const likeCount = parseInt(likeButton.textContent.split(' ')[1]);
     const updatedLikeCount = liked ? likeCount - 1: likeCount + 1;
     likeButton.textContent = `\u2764 ${updatedLikeCount}`;
+    likeButton.style.color = liked ? "black" : "red";
     likeButton.dataset.liked = !liked;
 }
-
-createPlaylistCards().then(() => {
-    addModalFunctionality();
-    let shuffleButton = document.querySelector('#shuffle-button');
-    shuffleButton.addEventListener('click', () => {
-        shufflePlaylist()
-    });
-});
-
 
 function shufflePlaylist() {
     let songsContainer = document.querySelector('.modal-song-container');
@@ -210,3 +204,12 @@ function shufflePlaylist() {
         songsContainer.appendChild(song);
     }
 }
+
+
+createPlaylistCards().then(() => {
+    addModalFunctionality();
+    let shuffleButton = document.querySelector('#shuffle-button');
+    shuffleButton.addEventListener('click', () => {
+        shufflePlaylist()
+    });
+});
