@@ -172,9 +172,6 @@ function createSongCard(song) {
     p3.classList.add('songDuration');
     
     elem.append(p3);
-
-    // TODO: might need this?
-    // elem.setAttribute('data-song-id', song.songID);
     
     return elem;
 }

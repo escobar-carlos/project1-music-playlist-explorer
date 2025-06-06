@@ -53,9 +53,6 @@ function createFeaturedSongCard(song) {
 
     // append songInfo to main elem
     elem.appendChild(songInfoElem);
-
-    // TODO: might need this?
-    // elem.setAttribute('data-song-id', song.songID);
     
     return elem;
 }

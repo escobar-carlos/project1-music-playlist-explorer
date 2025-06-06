@@ -4,7 +4,6 @@
 }
 
 body {
-    height: 100%;
     font-family: 'Montserrat', sans-serif;
     background-color: #f8f8f8;
 }
@@ -44,9 +43,7 @@ header a:hover {
     flex-direction: column;
     align-items: center;
     margin-right: 50px;
-    text-align: center;
     gap: 15px;
-    max-width: 80vw;
 }
 
 .playlist img {
@@ -61,7 +58,7 @@ header a:hover {
     flex-direction: column;
     gap: 30px;
     min-width: 250px;
-    max-height: 92vh;
+    height: 100%;
 }
 
 .song {
@@ -81,4 +78,3 @@ header a:hover {
     flex-direction: column;
     gap: 5px;
 }
-

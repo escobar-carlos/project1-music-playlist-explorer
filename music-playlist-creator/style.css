@@ -37,10 +37,10 @@ header a:hover {
 .playlist-card {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     gap: 5px;
     width: 15%;
     max-width: 25%;
-    box-sizing: border-box;
     margin: 30px 60px;
     border-radius: 10px;
     background-color: white;
@@ -56,11 +56,6 @@ header a:hover {
 .playlist-title,
 .playlist-creator {
     text-align: center;
-}
-
-.playlist-card img {
-    width: 100%;
-    height: 100%;
 }
 
 .modal-overlay {
@@ -123,13 +118,7 @@ header a:hover {
 }
 
 #playlistImage {
-    flex: 0 0 30%;
     max-width: 30%;
-}
-
-#playlist-info {
-    display: flex;
-    flex-direction: column;
 }
 
 .modal-song-container {
@@ -138,17 +127,14 @@ header a:hover {
     gap: 10px;
 }
 
-.modal-song-container img {
-    width: auto;
-    height: 100%;
-    max-height: 100px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
 .song-card {
     display: flex;
     height: 100px;
+}
+
+.song-card img {
+    height: 100%;
+    border-radius: 5px;
 }
 
 .song-info {
