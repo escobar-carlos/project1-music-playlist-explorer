@@ -16,7 +16,7 @@ header {
 }
 
 #featuredLink {
-    margin-left: auto; /* TODO: REMOVE WHEN SEARCH IS IMPLEMENTED*/
+    margin-left: auto;
     margin-right: 20px;
 }
 
@@ -172,12 +172,4 @@ header a:hover {
     margin: 0px auto;
     border: none;
     cursor: pointer;
-}
-
-form {
-    margin: 0px auto;
-}
-
-#search {
-    margin: 0px auto;
 }

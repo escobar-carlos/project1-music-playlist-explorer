@@ -43,7 +43,6 @@ function createFeaturedSongCard(song) {
     p2.textContent = song.album;
     p2.classList.add('albumName');
     songInfoElem.appendChild(p2);
-
     
     // create another p elem for song duration and then append
     let p3 = document.createElement('p');
@@ -77,7 +76,6 @@ fetchData().then((data) => {
     let h3 = document.createElement('h3');
     h3.textContent = randomPlaylist.playlist_name;
     playlistContainer.appendChild(h3);
-
 
     let songsContainer = document.querySelector('.songs');
 
