@@ -229,9 +229,72 @@ function toggleDelete(event, playlistId) {
 
 }
 
+function sortElements(option) {
+    let playlists = document.querySelectorAll('.playlist-card');
+    // const playlistIds = Array.from(playlists).map(playlist => playlist.dataset.playlistId);
+
+    fetchData().then((data) => {
+        let playlistsData = data.playlists;
+        // const filteredPlaylistsData = playlistsData.filter(playlist => playlistIds.includes(playlist.playlistId));
+
+        const playlistDataObj = {};
+        playlists.forEach(playlist => {
+        const matchingPlaylistData = playlistsData.find(data => data.playlistId === playlist.dataset.playlistId);
+        playlistDataObj[playlist.dataset.playlistId] = matchingPlaylistData;
+        });
+
+        switch (option) {
+            case 'a-z':
+                // can get from query selector
+                // need to find out how to sort two objects based on its '.playlist_name' attribute
+                break;
+            case 'like-count':
+                // need to use both (dataset.liked from query selector & from json)
+                // need to find out how to sort two objects based on its '.playlist_likes' attribute + dataset.liked
+                break;
+            case 'date-added':
+                // from json
+                // need to find out how to sort two objects based on its '.date_created' attribute using Date objects and .getTime()
+                break;
+        }
+    });
+
+
+}
+
+// function searchRelevant(userInput) {
+//     let playlists = document.querySelectorAll('.playlist-card');
+//     let allPlaylistsInfo = [];
+//     for (let playlist of playlists) {
+
+//         // fetch data from json, add playlist
+//         let playlistInfo = [];
+//         playlistInfo.push()
+//     }
+// }
+
 
 createPlaylistCards().then(() => {
     addModalFunctionality();
     let shuffleButton = document.querySelector('#shuffle-button');
     shuffleButton.addEventListener('click', shufflePlaylist);
+
+    // sorting menu feture
+
+    // let sortMenu = document.querySelector('#sort-menu');
+    // sortMenu.addEventListener('change', () => {
+    //     sortElements(sortMenu.value);
+    // })
+    // let searchInput = document.querySelector('form');
+
+
+    // search bar feature
+    
+    // searchInput.addEventListener('submit', (event) => {
+    //     event.preventDefault();
+        
+    //     let userInput = document.querySelector('#search');
+
+    //     searchRelevant(userInput);
+    // })
 });

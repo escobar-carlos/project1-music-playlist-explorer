@@ -16,7 +16,7 @@ header {
 }
 
 #featuredLink {
-    margin-left: auto;
+    margin-left: auto; /* TODO: REMOVE WHEN SEARCH IS IMPLEMENTED*/
     margin-right: 20px;
 }
 
@@ -38,10 +38,10 @@ header a:hover {
 .playlist-card {
     display: flex;
     flex-direction: column;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     flex-grow: 1;
     gap: 5px;
-    width: 15%;
+    /* width: 15%; */
     max-width: 15%;
     margin: 30px 60px;
     border-radius: 10px;
@@ -172,4 +172,12 @@ header a:hover {
     margin: 0px auto;
     border: none;
     cursor: pointer;
+}
+
+form {
+    margin: 0px auto;
+}
+
+#search {
+    margin: 0px auto;
 }
