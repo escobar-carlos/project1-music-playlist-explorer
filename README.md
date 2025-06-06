@@ -4,7 +4,7 @@ Submitted by: Carlos Escobar
 
 Estimated time spent: 20 hours spent in total
 
-Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
+Deployed Application (**required**): [Music Playlist Explorer Deployed Site](https://project1-music-playlist-explorer-c03n.onrender.com)
 
 ### Application Features
 
