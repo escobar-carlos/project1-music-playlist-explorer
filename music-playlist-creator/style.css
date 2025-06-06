@@ -130,7 +130,6 @@ header a:hover {
 #playlist-info {
     display: flex;
     flex-direction: column;
-    /* flex: 70%; */
 }
 
 .modal-song-container {
