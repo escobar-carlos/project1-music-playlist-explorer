@@ -2,7 +2,7 @@
 
 Submitted by: Carlos Escobar
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: 20 hours spent in total
 
 Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD_LINK_HERE)
 
@@ -49,8 +49,8 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
       - [x] The like count on the playlist tile should decrease by 1.
       - [x] There should be visual feedback (such as the heart turning a different color) to show that the playlist has been unliked by the user.
     - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please film yourself liking and unliking:
-      - [ ] a playlist with a like count of 0
-      - [ ] a playlist with a non-zero like count
+      - [x] a playlist with a like count of 0
+      - [x] a playlist with a non-zero like count
 
 - [x] **Shuffle Songs**
   - [x] Enable users to shuffle the songs within a playlist using a shuffle button in the playlist's detail modal.
@@ -142,15 +142,18 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](ADD
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+I think the lab did a good job at introducing the basics. I especially found the like button to be very easy in the project because we had created one on the previous lab. What I felt unprepared for was the CSS. There was a lot of things that I had to find documentation for, such as setting the width and height properties of an element appropriately. I wanted them to scale nicely as the window size got small, so I needed to look for external resources.
+
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-  
-Add your response here
+
+
+I would have tried to implement every stretch feature. I also probably wouldn't have messed with retrieving my data from a .json as a .js file would have made my life way easier. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I think all went well. The demo hopefully showcased the large amount of time I spent on making the project look pretty. I noticed many of my peers had a feature where if they hovered over a playlist, it made a cool animation and got slightly larger, as if it was ready for a user to click it.
+
 
 ### Open-source libraries used
 
