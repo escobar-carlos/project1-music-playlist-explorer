@@ -46,45 +46,45 @@
     },
     {
       "playlistId": 2,
-      "playlist_name": "Smooth Soul",
-      "playlist_author": "SoulfulSamantha",
-      "playlist_art": "assets/img/loveDeluxe.png",
-      "playlist_likes": 42,
+      "playlist_name": "Utopia Dreams",
+      "playlist_author": "AstroNerd",
+      "playlist_art": "assets/img/utopia.png",
+      "playlist_likes": 10,
       "songs": [
         {
-          "song_name": "No Ordinary Love",
-          "artist": "Sade",
-          "song_art": "assets/img/loveDeluxe.png",
-          "album": "Love Deluxe",
-          "duration": "7:00"
+          "song_name": "Meltdown",
+          "artist": "Travis Scott",
+          "song_art": "assets/img/utopia.png",
+          "album": "Utopia",
+          "duration": "4:06"
         },
         {
-          "song_name": "Smooth Operator",
-          "artist": "Sade",
-          "song_art": "assets/img/diamondLife.jpg",
-          "album": "Diamond Life",
-          "duration": "4:58"
+          "song_name": "Fe!n",
+          "artist": "Travis Scott",
+          "song_art": "assets/img/utopia.png",
+          "album": "Utopia",
+          "duration": "3:22"
         },
         {
-          "song_name": "By Your Side",
-          "artist": "Sade",
-          "song_art": "assets/img/loversRock.png",
-          "album": "Lovers Rock",
+          "song_name": "Delresto (Echoes)",
+          "artist": "Travis Scott",
+          "song_art": "assets/img/utopia.png",
+          "album": "Utopia",
           "duration": "4:34"
         },
         {
-          "song_name": "Your Love Is King",
-          "artist": "Sade",
-          "song_art": "assets/img/diamondLife.jpg",
-          "album": "Diamond Life",
-          "duration": "3:39"
+          "song_name": "I Know ?",
+          "artist": "Travis Scott",
+          "song_art": "assets/img/utopia.png",
+          "album": "Utopia",
+          "duration": "3:30"
         },
         {
-          "song_name": "Kiss of Life",
-          "artist": "Sade",
-          "song_art": "assets/img/loversRock.png",
-          "album": "Lovers Rock",
-          "duration": "4:11"
+          "song_name": "Topia Twins",
+          "artist": "Travis Scott",
+          "song_art": "assets/img/utopia.png",
+          "album": "Utopia",
+          "duration": "3:43"
         }
       ]
     },
@@ -136,9 +136,16 @@
       "playlistId": 4,
       "playlist_name": "Billie's Favorites",
       "playlist_author": "BillieFan",
-      "playlist_art": "assets/img/oceanEyes.jpg",
+      "playlist_art": "assets/img/hitMeHardAndSoft.jpg",
       "playlist_likes": 56,
       "songs": [
+        {
+          "song_name": "Lunch",
+          "artist": "Billie Eilish",
+          "song_art": "assets/img/hitMeHardAndSoft.jpg",
+          "album": "Hit Me Hard and Soft",
+          "duration": "2:59"
+        },
         {
           "song_name": "Ocean Eyes",
           "artist": "Billie Eilish",
@@ -147,25 +154,11 @@
           "duration": "3:20"
         },
         {
-          "song_name": "Bad Guy",
+          "song_name": "Chasing Girl",
           "artist": "Billie Eilish",
-          "song_art": "assets/img/billieEilish.png",
-          "album": "When We All Fall Asleep, Where Do We Go?",
-          "duration": "3:12"
-        },
-        {
-          "song_name": "When the Party's Over",
-          "artist": "Billie Eilish",
-          "song_art": "assets/img/billieEilish.png",
-          "album": "When We All Fall Asleep, Where Do We Go?",
-          "duration": "3:16"
-        },
-        {
-          "song_name": "All the Good Girls Go to Hell",
-          "artist": "Billie Eilish",
-          "song_art": "assets/img/billieEilish.png",
-          "album": "When We All Fall Asleep, Where Do We Go?",
-          "duration": "2:48"
+          "song_art": "assets/img/hitMeHardAndSoft.jpg",
+          "album": "Hit Me Hard and Soft",
+          "duration": "2:46"
         },
         {
           "song_name": "Everything I Wanted",
@@ -173,6 +166,13 @@
           "song_art": "assets/img/everythingIWanted.png",
           "album": "Everything I Wanted (Single)",
           "duration": "4:05"
+        },
+        {
+          "song_name": "Wildflower",
+          "artist": "Billie Eilish",
+          "song_art": "assets/img/hitMeHardAndSoft.jpg",
+          "album": "Hit Me Hard and Soft",
+          "duration": "3:16"
         }
       ]
     },
@@ -222,7 +222,7 @@
     },
     {
       "playlistId": 6,
-      "playlist_name": "Cactus Jack \uD83C\uDF35",
+      "playlist_name": "Cactus Jack 🌵",
       "playlist_author": "AstroFan",
       "playlist_art": "assets/img/rodeo.png",
       "playlist_likes": 11,
@@ -249,33 +249,91 @@
           "duration": "3:05"
         },
         {
-          "song_name": "Coffee Bean",
-          "artist": "Travis Scott",
-          "song_art": "assets/img/astroworld.jpg",
-          "album": "Birds Eye View",
-          "duration": "3:48"
-        },
-        {
           "song_name": "No Bystanders",
           "artist": "Travis Scott",
           "song_art": "assets/img/astroworld.jpg",
           "album": "Astroworld",
           "duration": "3:38"
+        },
+        {
+          "song_name": "Antidote",
+          "artist": "Travis",
+          "song_art": "assets/img/rodeo.png",
+          "album": "Rodeo",
+          "duration": "4:22"
         }
       ]
     },
     {
       "playlistId": 7,
-      "playlist_name": "Soulful Nights",
-      "playlist_author": "SoulfulSinger",
-      "playlist_art": "assets/img/soldierOfLove.png",
-      "playlist_likes": 25,
+      "playlist_name": "Certified Lover",
+      "playlist_author": "DrakeFan",
+      "playlist_art": "assets/img/certifiedLoverBoy.png",
+      "playlist_likes": 40,
       "songs": [
         {
-          "song_name": "Pearls",
+          "song_name": "Champagne Poetry",
+          "artist": "Drake",
+          "song_art": "assets/img/certifiedLoverBoy.png",
+          "album": "Certified Lover Boy",
+          "duration": "5:18"
+        },
+        {
+          "song_name": "Knife Talk",
+          "artist": "Drake",
+          "song_art": "assets/img/certifiedLoverBoy.png",
+          "album": "Certified Lover Boy",
+          "duration": "4:02"
+        },
+        {
+          "song_name": "In the Bible",
+          "artist": "Drake",
+          "song_art": "assets/img/certifiedLoverBoy.png",
+          "album": "Certified Lover Boy",
+          "duration": "4:56"
+        },
+        {
+          "song_name": "Papi's Home",
+          "artist": "Drake",
+          "song_art": "assets/img/certifiedLoverBoy.png",
+          "album": "Certified Lover Boy",
+          "duration": "2:58"
+        },
+        {
+          "song_name": "TSU",
+          "artist": "Drake",
+          "song_art": "assets/img/certifiedLoverBoy.png",
+          "album": "Certified Lover Boy",
+          "duration": "5:08"
+        }
+      ]
+    },
+    {
+      "playlistId": 8,
+      "playlist_name": "The Best of Sade",
+      "playlist_author": "SadeFan",
+      "playlist_art": "assets/img/bestOfSade.jpeg",
+      "playlist_likes": 50,
+      "songs": [
+        {
+          "song_name": "Smooth Operator",
           "artist": "Sade",
-          "song_art": "assets/img/soldierOfLove.png",
-          "album": "Soldier of Love",
+          "song_art": "assets/img/diamondLife.jpg",
+          "album": "Diamond Life",
+          "duration": "4:58"
+        },
+        {
+          "song_name": "No Ordinary Love",
+          "artist": "Sade",
+          "song_art": "assets/img/loveDeluxe.png",
+          "album": "Love Deluxe",
+          "duration": "7:00"
+        },
+        {
+          "song_name": "By Your Side",
+          "artist": "Sade",
+          "song_art": "assets/img/loversRock.png",
+          "album": "Lovers Rock",
           "duration": "4:34"
         },
         {
@@ -286,69 +344,11 @@
           "duration": "4:37"
         },
         {
-          "song_name": "Is It a Crime",
+          "song_name": "Pearls",
           "artist": "Sade",
-          "song_art": "assets/img/promise.png",
-          "album": "Promise",
-          "duration": "6:20"
-        },
-        {
-          "song_name": "Cherish the Day",
-          "artist": "Sade",
-          "song_art": "assets/img/loversRock.png",
-          "album": "Lovers Rock",
-          "duration": "5:34"
-        },
-        {
-          "song_name": "Never as Good as the First Time",
-          "artist": "Sade",
-          "song_art": "assets/img/promise.png",
-          "album": "Promise",
-          "duration": "5:00"
-        }
-      ]
-    },
-    {
-      "playlistId": 8,
-      "playlist_name": "Billie Eilish Essentials",
-      "playlist_author": "BillieFan42",
-      "playlist_art": "assets/img/billieEilish.png",
-      "playlist_likes": 67,
-      "songs": [
-        {
-          "song_name": "You Should See Me in a Crown",
-          "artist": "Billie Eilish",
-          "song_art": "assets/img/billieEilish.png",
-          "album": "When We All Fall Asleep, Where Do We Go?",
-          "duration": "3:01"
-        },
-        {
-          "song_name": "All Good Girls Go to Hell",
-          "artist": "Billie Eilish",
-          "song_art": "assets/img/billieEilish.png",
-          "album": "When We All Fall Asleep, Where Do We Go?",
-          "duration": "2:48"
-        },
-        {
-          "song_name": "Bury a Friend",
-          "artist": "Billie Eilish",
-          "song_art": "assets/img/billieEilish.png",
-          "album": "When We All Fall Asleep, Where Do We Go?",
-          "duration": "3:13"
-        },
-        {
-          "song_name": "I Love You",
-          "artist": "Billie Eilish",
-          "song_art": "assets/img/billieEilish.png",
-          "album": "When We All Fall Asleep, Where Do We Go?",
-          "duration": "4:52"
-        },
-        {
-          "song_name": "My Strange Addiction",
-          "artist": "Billie Eilish",
-          "song_art": "assets/img/billieEilish.png",
-          "album": "When We All Fall Asleep, Where Do We Go?",
-          "duration": "3:00"
+          "song_art": "assets/img/soldierOfLove.png",
+          "album": "Soldier of Love",
+          "duration": "4:34"
         }
       ]
     }
