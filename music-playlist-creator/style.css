@@ -9,18 +9,25 @@ body {
 }
 
 header {
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
     background-color: #d3d3d3;
 }
 
-/* header, footer {
-    background-color: #d3d3d3;
-} */
+#featuredLink {
+    margin-left: auto;
+    margin-right: 20px;
+}
 
-/* footer {
-    margin-top: auto;
-    height: 50px;
-} */
+header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header a:hover {
+    color: red;
+}
 
 .playlist-cards {
     display: flex;
