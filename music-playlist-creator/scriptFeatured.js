@@ -1,3 +1,16 @@
+let data = null;
+
+/**
+ * Initialize the application
+ */
+async function init() {
+    data = await fetchData();
+    render();
+}
+
+/**
+ * Fetch data from JSON file and returns a promise of it
+ */
 async function fetchData() {
     try {
         const response = await fetch('data/data.json');
@@ -11,53 +24,59 @@ async function fetchData() {
     }
 }
 
+/**
+ * Create and return song card
+ * @param {object} song - Information about the song
+ */
 function createFeaturedSongCard(song) {
+    // Create card container
+    let card = document.createElement('div');
+    card.classList.add('song');
 
-    let elem = document.createElement('div');
-    elem.classList.add('song');
-
-    // create img elem and then append
+    // Create and append image element
     let img = document.createElement('img');
     img.src = song.song_art;
     img.alt = 'Song Image'
-    elem.appendChild(img);
+    card.appendChild(img);
     
-    // create song-info elem
+    // Create element that will store title/artist/album
     let songInfoElem = document.createElement('div');
     songInfoElem.classList.add('song-info');
 
-    // create h2 elem for title and then append
-    let h2 = document.createElement('h2');
-    h2.textContent = song.song_name;
-    h2.classList.add('songTitle')
-    songInfoElem.appendChild(h2);
+    // Create and append title element
+    let songTitle = document.createElement('h2');
+    songTitle.textContent = song.song_name;
+    songTitle.classList.add('songTitle')
+    songInfoElem.appendChild(songTitle);
 
-    // create p elem for artist name and then append
-    let p = document.createElement('p');
-    p.textContent = song.artist;
-    p.classList.add('songArtist');
-    songInfoElem.appendChild(p);
+    // Create and append artist element
+    let songArtist = document.createElement('p');
+    songArtist.textContent = song.artist;
+    songArtist.classList.add('songArtist');
+    songInfoElem.appendChild(songArtist);
 
-    // create another p elem for album name and then append
-    let p2 = document.createElement('p');
-    p2.textContent = song.album;
-    p2.classList.add('albumName');
-    songInfoElem.appendChild(p2);
+    // Create and append album element
+    let album = document.createElement('p');
+    album.textContent = song.album;
+    album.classList.add('albumName');
+    songInfoElem.appendChild(album);
     
-    // create another p elem for song duration and then append
-    let p3 = document.createElement('p');
-    p3.textContent = song.duration;
-    p3.classList.add('songDuration');
-    songInfoElem.append(p3);
+    // Create and append duration element
+    let duration = document.createElement('p');
+    duration.textContent = song.duration;
+    duration.classList.add('songDuration');
+    songInfoElem.append(duration);
 
-    // append songInfo to main elem
-    elem.appendChild(songInfoElem);
+    // Append song info element
+    card.appendChild(songInfoElem);
     
-    return elem;
+    return card;
 }
 
-
-fetchData().then((data) => {
+/**
+ * Render the page
+ */
+function render() {
     let playlists = data.playlists;
     
     let randomPlaylist = playlists[Math.floor(Math.random() * playlists.length)];
@@ -66,21 +85,24 @@ fetchData().then((data) => {
 
     let playlistContainer = document.querySelector('.playlist');
 
-    // create img elem
+    // Create and append image element
     let img = document.createElement('img');
     img.src = randomPlaylist.playlist_art;
     img.alt = 'Playlist Image';
     playlistContainer.appendChild(img);
 
-    // create h3 elem for title and then append
-    let h3 = document.createElement('h3');
-    h3.textContent = randomPlaylist.playlist_name;
-    playlistContainer.appendChild(h3);
+    // Create and append title element
+    let title = document.createElement('h3');
+    title.textContent = randomPlaylist.playlist_name;
+    playlistContainer.appendChild(title);
 
     let songsContainer = document.querySelector('.songs');
 
+    // Create song cards from scratch and append to container
     for (let song of songs) {
         let songCard = createFeaturedSongCard(song);
         songsContainer.append(songCard);
     }
-})
+}
+
+init();

@@ -1,43 +1,51 @@
+// Initialize variable to store data fetched from json
+let data = null;
+
+/**
+ * Initialize the application
+ */
+async function init() {
+    data = await fetchData();
+    render();
+    addEventListeners();
+}
+
+/**
+ * Open modal window and displays appropriate playlist details
+ * @param {string} playlistId - The ID of the playlist to display
+ */
 function openModal(playlistId) {
+    // Find info about the playlist that was clicked
+    let playlists = data.playlists;
+    let matchingPlaylist = playlists.find(playlist => playlist.playlistId == playlistId);
 
-    // fetch data from json, find correct playlist info
-    fetchData().then((data) => {
+    if (matchingPlaylist) {
+        // Populate modal window
+        document.querySelector('#playlistImage').src = matchingPlaylist.playlist_art;
+        document.querySelector('#playlistTitle').textContent = matchingPlaylist.playlist_name;
+        document.querySelector('#playlistCreator').textContent = matchingPlaylist.playlist_author;
 
-        let playlists = data.playlists;
-        let matchingPlaylist = null;
-        for (let playlist of playlists) {
-            if (playlist.playlistId == playlistId) {
-                matchingPlaylist = playlist;
-                break;
-            }
+        let songsContainer = document.querySelector('.modal-song-container');
+        
+        // Clear to avoid appending to existing songs in container
+        songsContainer.innerHTML = '';
+
+        let songs = matchingPlaylist.songs;
+
+        // Create and append songs
+        for (let song of songs) {
+            let songCard = createSongCard(song);
+            songsContainer.appendChild(songCard);
         }
-        if (matchingPlaylist) {
-            document.querySelector('#playlistImage').src = matchingPlaylist.playlist_art;
-            document.querySelector('#playlistTitle').textContent = matchingPlaylist.playlist_name;
-            document.querySelector('#playlistCreator').textContent = matchingPlaylist.playlist_author;
 
-            let songsContainer = document.querySelector('.modal-song-container');
-            
-            // clear if necessary
-            songsContainer.innerHTML = '';
-
-            let songs = matchingPlaylist.songs;
-
-            for (let song of songs) {
-                let songCard = createSongCard(song);
-                songsContainer.appendChild(songCard);
-            }
-
-            modal.style.display = "block"; 
-        } else {
-            console.error("An error has occured: A matching playlist was not found");
-        }
-    })
-
+        modal.style.display = "block"; 
+    } else {
+        console.error("An error has occured: A matching playlist was not found");
+    }
 }
 
 const modal = document.querySelector('#playlistModal');
-const span = document.querySelectorAll('.close')[0];
+const span = document.querySelector('.close');
 
 span.onclick = function() {
     modal.style.display = "none";
@@ -49,65 +57,71 @@ window.onclick = function(event) {
     }
 }
 
-
-async function createPlaylistCards() {
-    // wait until data is fetched from json
-    const dataAsynch = await fetchData();
-    const playlists = dataAsynch.playlists;
-
+/**
+ * Render the playlist cards
+ */
+function render() {
     const playlistCards = document.querySelector('.playlist-cards');
+    playlistCards.innerHTML = '';
 
-    for (let playlist of playlists) {
+    // Create playlist cards from scratch and append to container
+    for (let playlist of data.playlists) {
         let card = createPlaylistCard(playlist);
         playlistCards.appendChild(card);
     }
 }
 
+/**
+ * Create and return playlist card
+ * @param {object} playlist - Information about the playlist
+ */
 function createPlaylistCard(playlist) {
-    let elem = document.createElement('div');
-    elem.classList.add('playlist-card');
+    // Create card container
+    let card = document.createElement('div');
+    card.classList.add('playlist-card');
 
-    // create img elem and then append
+    // Add playlist ID as a data attribute
+    card.setAttribute('data-playlist-id', playlist.playlistId);
+
+    // Create and append image element
     let img = document.createElement('img');
     img.src = playlist.playlist_art;
     img.alt = 'Playlist Image';
-    elem.appendChild(img);
+    card.appendChild(img);
 
-    // create h3 elem for title and then append
-    let h3 = document.createElement('h3');
-    h3.classList.add('playlist-title');
-    h3.textContent = playlist.playlist_name;
-    elem.appendChild(h3);
+    // Create and append title element
+    let title = document.createElement('h3');
+    title.classList.add('playlist-title');
+    title.textContent = playlist.playlist_name;
+    card.appendChild(title);
 
-    // create p elem for creator name and then append
-    let p = document.createElement('p');
-    p.classList.add('playlist-creator');
-    p.textContent = playlist.playlist_author;
-    elem.appendChild(p);
+    // Create and append author element
+    let author = document.createElement('p');
+    author.classList.add('playlist-creator');
+    author.textContent = playlist.playlist_author;
+    card.appendChild(author);
 
-    // create like button
+    // Create and append like button
     let likeButton = document.createElement('button');
     likeButton.classList.add('like-button');
     likeButton.setAttribute('data-liked', false);
     likeButton.textContent = `\u2764 ${playlist.playlist_likes}`;
 
-    likeButton.addEventListener('click', toggleLike);
+    card.appendChild(likeButton);
 
-    elem.appendChild(likeButton);
-
-    // create delete button
+    // Create and append delete button
     let deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
     deleteButton.textContent = 'Delete';
 
-    elem.appendChild(deleteButton);
+    card.appendChild(deleteButton);
 
-    // add id as a data attribute
-    elem.setAttribute('data-playlist-id', playlist.playlistId);
-    
-    return elem;
+    return card;
 }
 
+/**
+ * Fetch data from JSON file and returns a promise of it
+ */
 async function fetchData() {
     try {
         const response = await fetch('data/data.json');
@@ -121,115 +135,134 @@ async function fetchData() {
     }
 }
 
-function addModalFunctionality() {
-    let playlists = document.querySelectorAll('.playlist-card');
+/**
+ * Add event listeners to playlist cards and modal
+ */
+function addEventListeners() {
+    let playlistCards = document.querySelectorAll('.playlist-card');
 
-    for (let playlist of playlists) {
-        playlist.addEventListener('click', () => {
-            openModal(playlist.dataset.playlistId);
-        })
+    for (let card of playlistCards) {
+        let playlistId = card.dataset.playlistId;
+        // Allow modal functionality
+        card.addEventListener('click', () => openModal(playlistId));
 
-        // add delete button click functinality
-        let deleteButton = playlist.querySelector('.delete-button');
-        deleteButton.addEventListener('click', (event) => {
-            toggleDelete(event, playlist.dataset.playlistId);
-        })
+        // Allow liking
+        let likeButton = card.querySelector('.like-button');
+        likeButton.addEventListener('click', toggleLike);
+
+        // Allow deleting
+        let deleteButton = card.querySelector('.delete-button');
+        deleteButton.addEventListener('click', toggleDelete);
     }
+
+    // Allow shuffling
+    let shuffleButton = document.querySelector('#shuffle-button');
+    shuffleButton.addEventListener('click', shufflePlaylist);
 }
 
+/**
+ * Create and return song card
+ * @param {object} song - Information about the song
+ */
 function createSongCard(song) {
+    // Create card container
+    let card = document.createElement('div');
+    card.classList.add('song-card');
 
-    let elem = document.createElement('div');
-    elem.classList.add('song-card');
-
-    // create img elem and then append
+    // Create and append image element
     let img = document.createElement('img');
     img.src = song.song_art;
     img.alt = 'Song Image'
-    elem.appendChild(img);
+    card.appendChild(img);
     
-    // create song-info elem
+    // Create element that will store title/artist/album
     let songInfoElem = document.createElement('div');
     songInfoElem.classList.add('song-info');
 
-    // create h2 elem for title and then append
-    let h2 = document.createElement('h2');
-    h2.textContent = song.song_name;
-    h2.classList.add('songTitle')
-    songInfoElem.appendChild(h2);
+    // Create and append title element
+    let title = document.createElement('h2');
+    title.textContent = song.song_name;
+    title.classList.add('songTitle')
+    songInfoElem.appendChild(title);
 
-    // create p elem for artist name and then append
-    let p = document.createElement('p');
-    p.textContent = song.artist;
-    p.classList.add('songArtist');
-    songInfoElem.appendChild(p);
+    // Create and append artist element
+    let artist = document.createElement('p');
+    artist.textContent = song.artist;
+    artist.classList.add('songArtist');
+    songInfoElem.appendChild(artist);
 
-    // create another p elem for album name and then append
-    let p2 = document.createElement('p');
-    p2.textContent = song.album;
-    p2.classList.add('albumName');
-    songInfoElem.appendChild(p2);
+    // Create and append album element
+    let album = document.createElement('p');
+    album.textContent = song.album;
+    album.classList.add('albumName');
+    songInfoElem.appendChild(album);
 
-    // append songInfo to main elem
-    elem.appendChild(songInfoElem);
+    // Append song info element
+    card.appendChild(songInfoElem);
 
-    // create another p elem for song duration and then append
-    let p3 = document.createElement('p');
-    p3.textContent = song.duration;
-    p3.classList.add('songDuration');
+    // Create and append duration element
+    let duration = document.createElement('p');
+    duration.textContent = song.duration;
+    duration.classList.add('songDuration');
     
-    elem.append(p3);
+    card.append(duration);
     
-    return elem;
+    return card;
 }
 
+/**
+ * Shuffle the songs in the modal
+ */
+function shufflePlaylist() {
+    let songsContainer = document.querySelector('.modal-song-container');
+    let songs = Array.from(document.querySelectorAll('.song-card'));
+
+    // Clear to avoid appending to existing songs in container
+    songsContainer.innerHTML = '';
+
+    // Shuffle algorithm
+    songs.sort(() => Math.random() - 0.5);
+
+    // Create and append songs
+    for (let song of songs) {
+        songsContainer.appendChild(song);
+    }
+}
+
+/**
+ * Toggle the like button
+ * @param {Event} event - click event
+ */
 function toggleLike(event) {
     event.stopPropagation();
 
     const likeButton = event.target;
     const liked = likeButton.dataset.liked === 'true';
     const likeCount = parseInt(likeButton.textContent.split(' ')[1]);
+    // Calculate the new like count
     const updatedLikeCount = liked ? likeCount - 1: likeCount + 1;
+    // Reflect changes on the button itself
     likeButton.textContent = `\u2764 ${updatedLikeCount}`;
     likeButton.style.color = liked ? "black" : "red";
     likeButton.dataset.liked = !liked;
 }
 
-function shufflePlaylist() {
-    let songsContainer = document.querySelector('.modal-song-container');
-    let songs = Array.from(document.querySelectorAll('.song-card'));
-
-    // clear if necessary
-    songsContainer.innerHTML = '';
-
-    songs.sort(() => Math.random() - 0.5);
-
-    for (let song of songs) {
-        songsContainer.appendChild(song);
-    }
-}
-
-function toggleDelete(event, playlistId) {
+/**
+ * Delete a playlist
+ * @param {Event} event - click event
+ */
+function toggleDelete(event) {
     event.stopPropagation();
-    let playlists = document.querySelectorAll('.playlist-card');
 
-    let matchingPlaylist = null;
-    for (let playlist of playlists) {
-        if (playlist.dataset.playlistId == playlistId) {
-            matchingPlaylist = playlist;
-            break;
-        }
-    }
+    // Find information about the playlist wanting to be deleted
+    const playlistCard = event.target.parentElement;
+    const playlistId = playlistCard.dataset.playlistId;
 
-    if (matchingPlaylist) {
-        matchingPlaylist.remove();
-    } else {
-        console.error("An error has occured: Could not find playlist to delete");
-    }
+    // Remove the playlist card from DOM
+    playlistCard.remove();
+
+    // Remove the playlist card from 'data' array
+    data.playlists = data.playlists.filter(playlist => playlist.playlistId != playlistId);
 }
 
-createPlaylistCards().then(() => {
-    addModalFunctionality();
-    let shuffleButton = document.querySelector('#shuffle-button');
-    shuffleButton.addEventListener('click', shufflePlaylist);
-});
+init();
