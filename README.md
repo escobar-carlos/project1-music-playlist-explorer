@@ -2,7 +2,7 @@
 
 Submitted by: Carlos Escobar
 
-Estimated time spent: 20 hours spent in total
+Estimated time spent: 25 hours spent in total
 
 Deployed Application (**required**): [Music Playlist Explorer Deployed Site](https://project1-music-playlist-explorer-c03n.onrender.com)
 
@@ -131,10 +131,9 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 ### Walkthrough Video
 
 <div>
-  <a href="https://www.loom.com/share/e638130e7ad248098738cb45c872a918">
-  </a>
-  <a href="https://www.loom.com/share/e638130e7ad248098738cb45c872a918">
-    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e638130e7ad248098738cb45c872a918-a997e9c9d6771461-full-play.gif">
+  <a href="https://www.loom.com/share/6d9153cfda734ba3b855487e6feee5ac"></a>
+  <a href="https://www.loom.com/share/6d9153cfda734ba3b855487e6feee5ac">
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/6d9153cfda734ba3b855487e6feee5ac-b4189d5a4ec4bf8c-full-play.gif">
   </a>
 </div>
 
@@ -147,17 +146,13 @@ I think the lab did a good job at introducing the basics. I especially found the
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
-
 I would have tried to implement every stretch feature. I also probably wouldn't have messed with retrieving my data from a .json as a .js file would have made my life way easier. 
+
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
 I think all went well. The demo hopefully showcased the large amount of time I spent on making the project look pretty. I noticed many of my peers had a feature where if they hovered over a playlist, it made a cool animation and got slightly larger, as if it was ready for a user to click it.
 
-
-### Open-source libraries used
-
-- Add any links to open-source libraries used in your project.
 
 ### Shout out
 
