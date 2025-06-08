@@ -121,12 +121,12 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
       - [ ] If users can delete a playlist, deleted playlists should no longer be included in search results.
       - **Note:** You will not be graded on the implementation of this optional subfeature to keep your grade of this stretch feature independent of your implementation of other stretch features. However, we highly suggest including this in your implementation to model realistic behavior of real applications. 
 
-- [ ] **Sorting Options**
-  - [ ] Implement a drop-down or button options that allow users to sort the playlist by:
-    - [ ] Name (A-Z alphabetically)
-    - [ ] Number of likes (descending order)
-    - [ ] Date added (most recent to oldest, chronologically)
-  - [ ] Selecting a sort option should result in a reordering based on the selected sort while maintaining a grid view.
+- [x] **Sorting Options**
+  - [x] Implement a drop-down or button options that allow users to sort the playlist by:
+    - [x] Name (A-Z alphabetically)
+    - [x] Number of likes (descending order)
+    - [x] Date added (most recent to oldest, chronologically)
+  - [x] Selecting a sort option should result in a reordering based on the selected sort while maintaining a grid view.
 
 ### Walkthrough Video
 

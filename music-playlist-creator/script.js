@@ -104,8 +104,8 @@ function createPlaylistCard(playlist) {
     // Create and append like button
     let likeButton = document.createElement('button');
     likeButton.classList.add('like-button');
-    likeButton.setAttribute('data-liked', false);
     likeButton.textContent = `\u2764 ${playlist.playlist_likes}`;
+    likeButton.style.color = playlist.liked ? "red" : "black";
 
     card.appendChild(likeButton);
 
@@ -158,6 +158,10 @@ function addEventListeners() {
     // Allow shuffling
     let shuffleButton = document.querySelector('#shuffle-button');
     shuffleButton.addEventListener('click', shufflePlaylist);
+
+    // Allow sorting
+    let sortOptions = document.querySelector('#sort-options');
+    sortOptions.addEventListener('change', () => sortPlaylists(sortOptions.value));
 }
 
 /**
@@ -237,14 +241,25 @@ function toggleLike(event) {
     event.stopPropagation();
 
     const likeButton = event.target;
-    const liked = likeButton.dataset.liked === 'true';
+
+    // Find information about the playlist wanting to be liked
+    const playlistCard = event.target.parentElement;
+    const playlistId = playlistCard.dataset.playlistId;
+
+    let playlists = data.playlists;
+    let matchingPlaylist = playlists.find(playlist => playlist.playlistId == playlistId);
+
+    // Set 'liked' attribute to true if undefined, else set to opposite value of previous value
+    matchingPlaylist.liked = (matchingPlaylist.liked === undefined) ? true : !matchingPlaylist.liked;
+
     const likeCount = parseInt(likeButton.textContent.split(' ')[1]);
-    // Calculate the new like count
-    const updatedLikeCount = liked ? likeCount - 1: likeCount + 1;
+    // Calculate the new like count and reflect changes in 'data'
+    const updatedLikeCount = matchingPlaylist.liked ? likeCount + 1: likeCount - 1;
+    matchingPlaylist.playlist_likes = updatedLikeCount;
+
     // Reflect changes on the button itself
     likeButton.textContent = `\u2764 ${updatedLikeCount}`;
-    likeButton.style.color = liked ? "black" : "red";
-    likeButton.dataset.liked = !liked;
+    likeButton.style.color = matchingPlaylist.liked ? "red" : "black";
 }
 
 /**
@@ -263,6 +278,28 @@ function toggleDelete(event) {
 
     // Remove the playlist card from 'data' array
     data.playlists = data.playlists.filter(playlist => playlist.playlistId != playlistId);
+}
+
+/**
+ * Sort playlists based on user input
+ * @param {string} option - user selected option
+ */
+function sortPlaylists(option) {
+    switch (option) {
+        case 'alphabetical':
+            data.playlists.sort((a,b) => a.playlist_name.localeCompare(b.playlist_name));
+            break;
+        case 'likes':
+            data.playlists.sort((a, b) => b.playlist_likes - a.playlist_likes);
+            break;
+        case 'date':
+            data.playlists.sort((a, b) => new Date(b.date_added).getTime() - new Date(a.date_added).getTime());
+            break;
+        default:
+            console.error("Invalid sort option selected.")
+    }
+    render();
+    addEventListeners();
 }
 
 init();

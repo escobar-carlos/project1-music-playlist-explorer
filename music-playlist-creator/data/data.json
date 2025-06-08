@@ -6,7 +6,7 @@
       "playlist_author": "AstroNerd",
       "playlist_art": "assets/img/astroworld.jpg",
       "playlist_likes": 23,
-      "date_created": "2023-07-01T00:00:00Z",
+      "date_added": "2023-07-01T00:00:00Z",
       "songs": [
         {
           "song_name": "Sicko Mode",
@@ -51,7 +51,7 @@
       "playlist_author": "AstroNerd",
       "playlist_art": "assets/img/utopia.png",
       "playlist_likes": 10,
-      "date_created": "2023-08-04T00:00:00Z",
+      "date_added": "2023-08-04T00:00:00Z",
       "songs": [
         {
           "song_name": "Meltdown",
@@ -96,7 +96,7 @@
       "playlist_author": "Dreamcatcher",
       "playlist_art": "assets/img/i.jpg",
       "playlist_likes": 17,
-      "date_created": "2022-09-15T00:00:00Z",
+      "date_added": "2022-09-15T00:00:00Z",
       "songs": [
         {
           "song_name": "Crush",
@@ -141,7 +141,7 @@
       "playlist_author": "BillieFan",
       "playlist_art": "assets/img/hitMeHardAndSoft.jpg",
       "playlist_likes": 56,
-      "date_created": "2024-05-17T00:00:00Z",
+      "date_added": "2024-05-17T00:00:00Z",
       "songs": [
         {
           "song_name": "Lunch",
@@ -186,7 +186,7 @@
       "playlist_author": "LatinLover",
       "playlist_art": "assets/img/unVeranoSinTi.png",
       "playlist_likes": 0,
-      "date_created": "2022-05-06T00:00:00Z",
+      "date_added": "2022-05-06T00:00:00Z",
       "songs": [
         {
           "song_name": "Diles",
@@ -231,7 +231,7 @@
       "playlist_author": "AstroFan",
       "playlist_art": "assets/img/rodeo.png",
       "playlist_likes": 11,
-      "date_created": "2021-03-15T00:00:00Z",
+      "date_added": "2021-03-15T00:00:00Z",
       "songs": [
         {
           "song_name": "5% Tint",
@@ -276,7 +276,7 @@
       "playlist_author": "DrakeFan",
       "playlist_art": "assets/img/certifiedLoverBoy.png",
       "playlist_likes": 40,
-      "date_created": "2021-09-03T00:00:00Z",
+      "date_added": "2021-09-03T00:00:00Z",
       "songs": [
         {
           "song_name": "Champagne Poetry",
@@ -321,7 +321,7 @@
       "playlist_author": "SadeFan",
       "playlist_art": "assets/img/bestOfSade.jpeg",
       "playlist_likes": 50,
-      "date_created": "1994-10-31T00:00:00Z",
+      "date_added": "1994-10-31T00:00:00Z",
       "songs": [
         {
           "song_name": "Smooth Operator",
